@@ -1,6 +1,6 @@
 {
   "schema": "agentcofounder.harness_memory.quality.v1",
-  "updated_at": "2026-09-04T19:27:43.712Z",
+  "updated_at": "2026-09-04T20:31:40.662Z",
   "rules": [
     {
       "id": "quality.storage_boundary",
