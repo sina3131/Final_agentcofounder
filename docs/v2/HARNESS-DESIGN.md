@@ -1,6 +1,6 @@
 # Harness design & structure (current)
 
-Status: **live on `v2` / `alisina_test` as of 2026-09-04**  
+Status: **live on `alisina_experiment_` → public [sina3131/Final_agentcofounder](https://github.com/sina3131/Final_agentcofounder) `main` (as of 2026-09-04)**  
 Default execution: **`milestone_ralph`** (fresh Pi session + L0 gate per slice)  
 Entry point: `npm run challenge` → `src/run-challenge.ts`
 
@@ -211,7 +211,7 @@ flowchart LR
 ## 7. Repository map (what connects to what)
 
 ```
-agentcofounder-private/
+Final_agentcofounder/          # public: github.com/sina3131/Final_agentcofounder
 ├── contract-public/           # Public contract (idea + journeys)
 ├── solution/                  # Organizer prompts + mvp-builder skill
 ├── app-template/              # Seed app (Vite/React/Vitest + AGENTS.md)
@@ -224,6 +224,12 @@ agentcofounder-private/
 │       ├── config.ts          # EXECUTION_STRATEGY, harness_owned_verify
 │       ├── manifest.ts        # run-manifest.json provenance
 │       ├── analyze-run.ts     # station + ledger
+│       ├── cost-model.ts      # competition-weighted cost + VOI scoring
+│       ├── quality/           # rubric matrix
+│       ├── sensors/           # architecture / a11y / persistence
+│       ├── voi/               # adaptive hop selection + quality floor
+│       ├── context/           # stable/volatile context intelligence
+│       ├── harness-memory/    # cross-run patterns
 │       ├── milestone-ralph/   # RALPH loop
 │       │   ├── run.ts         # slice loop, budgets, ralphProcessExit
 │       │   ├── observe.ts     # workspace + quality gaps

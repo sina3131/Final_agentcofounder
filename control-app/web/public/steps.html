@@ -298,7 +298,7 @@
       <a class="chip" href="https://github.com/Stockholm-AI/agentcofounder">Starter repo</a>
       <a class="chip" href="STEPS.md">Markdown copy</a>
       <a class="chip" href="#i">Export run JSON</a>
-      <a class="chip" href="https://github.com/Paulsvgr/agentcofounder-hackathon">Runs app (GitHub)</a>
+      <a class="chip" href="https://github.com/sina3131/Final_agentcofounder">Alisina submission (GitHub)</a>
     </div>
     <p class="formula">Efficiency = input + (output × 3) + (cache_read × 0.1)</p>
 
@@ -324,7 +324,7 @@
         <li>Never run <code>npm</code> against the repo from Windows — mixed installs leave Linux symlinks Windows cannot execute.</li>
         <li>Keep the repo on Ubuntu's disk. <code>/mnt/c/...</code> works but is slow.</li>
       </ul>
-      <p><strong>Status:</strong> Steps 1–5 done (<code>npm run check</code> green on the fork). Next: Step 6, then credentials — the only real blocker to a first run. Fork: <a href="https://github.com/Paulsvgr/agentcofounder">Paulsvgr/agentcofounder</a>.</p>
+      <p><strong>Status:</strong> Public submission repo is <a href="https://github.com/sina3131/Final_agentcofounder">sina3131/Final_agentcofounder</a> (Alisina). Include the exact commit SHA in Short Notes when submitting.</p>
     </section>
   </header>
 
@@ -366,9 +366,9 @@
         <div>
           <h3>Step 2. Clone your fork — inside Ubuntu</h3>
 <pre><code>mkdir -p ~/hackathon &amp;&amp; cd ~/hackathon
-git clone https://github.com/Paulsvgr/agentcofounder.git
-cd agentcofounder</code></pre>
-          <p>Then in Cursor: File → Open Folder → <code>\\wsl.localhost\Ubuntu-22.04\home\codemaster\hackathon\agentcofounder</code></p>
+git clone https://github.com/sina3131/Final_agentcofounder.git
+cd Final_agentcofounder</code></pre>
+          <p>Then in Cursor: File → Open Folder → the cloned <code>Final_agentcofounder</code> path.</p>
         </div>
       </article>
     </section>
@@ -698,8 +698,8 @@ npm run dev</code></pre>
         Log runs in the team <strong>runs app</strong> so you can compare approaches.
         Export tooling lives on <code>setup/measure</code> — not thin <code>main</code>/<code>base</code>
         (those are stock + pi-agent only, no <code>export:run</code>).
-        App: <a href="https://github.com/Paulsvgr/agentcofounder-hackathon">Paulsvgr/agentcofounder-hackathon</a>
-        (live at <code>admin.coretechs.se</code> — open <strong>How to export</strong> or <strong>Cohort</strong> in the UI).
+        App: <a href="https://github.com/sina3131/Final_agentcofounder">sina3131/Final_agentcofounder</a>
+        (challenge harness submission). For the shared runs UI, use your team control-app / export flow if enabled.
       </p>
 
       <article class="step">
@@ -836,7 +836,7 @@ npm run publish:runs -- --exp1-rtl</code></pre>
         <input type="checkbox" id="s31" data-step="31">
         <div>
           <h3>Step 31. Submit</h3>
-          <p>Send the public GitHub URL via the <a href="https://agentcofounder.stockholm.ai/">submission page</a>.</p>
+          <p>Send the public GitHub URL <a href="https://github.com/sina3131/Final_agentcofounder">sina3131/Final_agentcofounder</a> via the <a href="https://agentcofounder.stockholm.ai/">submission page</a>, and paste the full commit SHA into <strong>Short Notes</strong> (e.g. <code>Judged commit: 3f0f0ba668a124ebe491c847f364e4a92e508b58</code>). Confirm with <code>git rev-parse HEAD</code> after push.</p>
         </div>
       </article>
 

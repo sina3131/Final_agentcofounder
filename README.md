@@ -1,6 +1,6 @@
 # AgentCofounder starter
 
-**Team working on analysis / V2:** read [`docs/v2/TEAM-GUIDE.md`](docs/v2/TEAM-GUIDE.md) first (branch map, what we built, and how to run each tool). Milestone plan: [`docs/v2/PLAN.md`](docs/v2/PLAN.md).
+**Alisina public submission:** [github.com/sina3131/Final_agentcofounder](https://github.com/sina3131/Final_agentcofounder) — put the exact `git rev-parse HEAD` SHA in the form **Short Notes**. Team narrative: [`docs/v2/TEAM-GUIDE.md`](docs/v2/TEAM-GUIDE.md). Harness wiring: [`docs/v2/HARNESS-DESIGN.md`](docs/v2/HARNESS-DESIGN.md). Milestone plan: [`docs/v2/PLAN.md`](docs/v2/PLAN.md).
 
 A forkable baseline for the AgentCofounder challenge. It gives every team the same pinned Pi runtime, neutral web application seed, execution command, telemetry collector, and public contract while leaving the actual agent strategy participant-owned.
 

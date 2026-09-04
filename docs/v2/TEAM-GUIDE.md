@@ -4,24 +4,28 @@ This document is the **narrative source of truth** for what we built, why, and h
 
 **Hackathon spec:** [agentcofounder.stockholm.ai](https://agentcofounder.stockholm.ai/)
 
+**Public submission repo (Alisina):** [sina3131/Final_agentcofounder](https://github.com/sina3131/Final_agentcofounder)  
+Local development historically lived under a private fork (`Paulsvgr/agentcofounder-private`); **do not submit that private URL**. Judges need a **public** repo + an exact commit SHA.
+
 ---
 
 ## Branch map (read first)
 
-| Branch | Purpose | Who uses it |
-|--------|---------|-------------|
-| **`main`** | Clean hackathon starter + run replay | Submission baseline |
-| **`setup/measure`** | Phase F experiments (Exp1–6, 5b) and historical runs | Frozen evidence — do not stack new experiments here |
-| **`v2`** | Experiment foundation + analysis platform | **Start here** for new work |
+| Branch / remote | Purpose | Who uses it |
+|-----------------|---------|-------------|
+| **`alisina_experiment_`** → `team-a` / GitHub `main` | Alisina submission harness (RALPH + context intelligence + quality floor) | **Primary judged tip** on [Final_agentcofounder](https://github.com/sina3131/Final_agentcofounder) |
+| **`alisina_test`** | Earlier / alternate team line (sibling history) | Second submission only if published to its own public repo |
+| **`origin` (Paulsvgr)** | Private working fork | Backup only — not for the form |
+| **`v2` / `main` (upstream starter)** | Organizer-style baselines | Reference only |
 
 **Rules:**
 
-- Phase F history lives on `setup/measure`. Do not delete it.
-- New measurement and analysis work goes on `v2`.
-- Do not mix experiment patches into `v2` without a deliberate merge plan.
+- Clone and day-to-day work: prefer [Final_agentcofounder](https://github.com/sina3131/Final_agentcofounder) (public).
+- Push judged tips with `git push -u team-a alisina_experiment_:main` (remote `team-a` → Final_agentcofounder).
+- Before the form: `git rev-parse HEAD`, confirm the SHA opens on GitHub while logged out, paste full SHA into **Short Notes**. Do not force-push that tip afterward.
 - Raw run artifacts under `artifacts/runs/` are immutable evidence. Derived analysis goes under `artifacts/analysis/` or `artifacts/replay/`.
 
-**Current harness map:** [`HARNESS-DESIGN.md`](./HARNESS-DESIGN.md) (flowcharts + structure). Interactive canvas: **Harness architecture (current)**. Context intelligence / sensors / adaptive VOI / harness-memory are on by default (`CONTEXT_INTELLIGENCE`, `RALPH_ADAPTIVE`).
+**Current harness map:** [`HARNESS-DESIGN.md`](./HARNESS-DESIGN.md) (flowcharts + structure). Context intelligence / sensors / adaptive VOI / harness-memory are on by default (`CONTEXT_INTELLIGENCE`, `RALPH_ADAPTIVE`). Early VOI stop is blocked while domain/storage (high-value gaps) remain.
 
 ---
 
@@ -30,9 +34,10 @@ This document is the **narrative source of truth** for what we built, why, and h
 **Requirements:** Node 22.19.x, npm 10.9.3 (see `.nvmrc`).
 
 ```bash
-git clone <repo-url>
-cd agentcofounder
-git checkout v2
+git clone https://github.com/sina3131/Final_agentcofounder.git
+cd Final_agentcofounder
+# optional: track the local experiment branch name
+# git checkout -B alisina_experiment_ main
 
 npm ci --ignore-scripts
 npm --prefix app-template ci --ignore-scripts
@@ -55,9 +60,9 @@ export CHALLENGE_MODEL="glm-5.2"
 export CHALLENGE_THINKING="off"    # default — lower output token cost
 export CHALLENGE_MAX_TOKENS="8192"          # recorded in run manifest (optional)
 export CHALLENGE_CONTEXT_WINDOW="128000"    # recorded in run manifest (optional)
-export CHALLENGE_TIMEOUT_MS="9000000"        # whole-run wall clock (default 15 minutes)
+export CHALLENGE_TIMEOUT_MS="3600000"        # whole-run wall clock (default 60 minutes)
 export EXECUTION_STRATEGY="milestone_ralph" # or single_session for the old one-shot Pi run
-export MILESTONE_TIMEOUT_MS="1800000"        # per-slice Pi limit
+export MILESTONE_TIMEOUT_MS="900000"         # per-slice Pi limit (default 15 minutes)
 export MILESTONE_MAX_SLICES="3"
 
 # Optional experiment metadata (written into run-manifest.json)
@@ -585,6 +590,29 @@ npm run challenge
 ```
 
 Do not set `RHI_HARNESS` during official judging unless that file is the intended submission harness. The evaluator and optimizer never run inside `npm run challenge`.
+
+---
+
+## Submission (Alisina / Final_agentcofounder)
+
+Judges only get a **repository URL** from the form. Put the **exact commit SHA** in **Short Notes / Highlights**.
+
+| Field | Value |
+|--------|--------|
+| Public repo | https://github.com/sina3131/Final_agentcofounder |
+| Local branch that was pushed | `alisina_experiment_` → remote `main` (`team-a`) |
+| Example tip SHA (verify before submit) | `3f0f0ba668a124ebe491c847f364e4a92e508b58` |
+| Commit link | https://github.com/sina3131/Final_agentcofounder/commit/3f0f0ba668a124ebe491c847f364e4a92e508b58 |
+
+```bash
+# After any last commit you want judged:
+git push team-a alisina_experiment_:main
+git rev-parse HEAD   # paste full SHA into Short Notes
+```
+
+**Short Notes example:** `Judged commit: 3f0f0ba668a124ebe491c847f364e4a92e508b58`
+
+Checklist: repo is **public**, SHA opens logged-out, no secrets in git, Pi still `@0.84.1`, **no force-push** over that SHA. If you already submitted, submit again with the SHA — organizers use the later entry.
 
 ---
 
